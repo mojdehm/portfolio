@@ -20,19 +20,18 @@ function statusClasses(status: string) {
 
     <ol v-else class="space-y-5">
       <li v-for="(pub, i) in data?.main.list" :key="i" class="border-b border-slate-100 pb-4">
-        <p class="text-slate-800 leading-relaxed">
-          {{ pub.item }}
-          <a
-            v-if="pub.link"
-            :href="pub.link"
-            target="_blank"
-            rel="noopener"
-            class="text-slate-500 hover:text-slate-900 underline ml-1"
-          >
-            [link]
-          </a>
-        </p>
-        <span class="inline-block mt-1 text-xs px-2 py-0.5 rounded" :class="statusClasses(pub.status)">
+        <p class="text-slate-800 leading-relaxed">{{ pub.item }}</p>
+        <a
+          v-if="pub.status === 'published' && pub.link"
+          :href="pub.link"
+          target="_blank"
+          rel="noopener"
+          class="inline-block mt-1 text-xs px-2 py-0.5 rounded underline"
+          :class="statusClasses(pub.status)"
+        >
+          {{ pub.status }}
+        </a>
+        <span v-else class="inline-block mt-1 text-xs px-2 py-0.5 rounded" :class="statusClasses(pub.status)">
           {{ pub.status }}
         </span>
       </li>
