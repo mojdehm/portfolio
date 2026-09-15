@@ -43,6 +43,7 @@ export interface CvPosition {
   date: string
   role: string
   org: string
+  detail?: string
 }
 
 export interface CvListItem {

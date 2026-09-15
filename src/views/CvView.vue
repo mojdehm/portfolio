@@ -32,6 +32,7 @@ const { data, loading, error } = useContent<CvContent>('cv')
           <p class="text-sm font-semibold text-slate-900">{{ p.date }}</p>
           <p class="font-medium text-slate-800">{{ p.role }}</p>
           <p class="text-sm text-slate-500">{{ p.org }}</p>
+          <p v-if="p.detail" class="text-sm text-slate-500">{{ p.detail }}</p>
         </div>
       </section>
 
