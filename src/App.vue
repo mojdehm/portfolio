@@ -5,7 +5,8 @@ const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/research', label: 'Research' },
-  { to: '/publications', label: 'Publications' }
+  { to: '/publications', label: 'Publications' },
+  { to: '/cv', label: 'CV' }
 ]
 </script>
 

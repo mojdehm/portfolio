@@ -38,3 +38,27 @@ export interface PublicationsContent {
   }
   sections: ContentSection[]
 }
+
+export interface CvPosition {
+  date: string
+  role: string
+  org: string
+}
+
+export interface CvListItem {
+  content: string
+  org?: string
+  detail?: string
+}
+
+export interface CvContent {
+  pdf: string
+  profile: string
+  positions: CvPosition[]
+  skills: string[]
+  teaching: CvListItem[]
+  conferences: string[]
+  education: CvListItem[]
+  service: string[]
+  honors: string[]
+}
