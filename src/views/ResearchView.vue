@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useContent } from '../composables/useContent'
-import type { AboutContent } from '../types/content'
+import type { ResearchContent } from '../types/content'
 
-const { data, loading, error } = useContent<AboutContent>('about')
+const { data, loading, error } = useContent<ResearchContent>('research')
 </script>
 
 <template>
   <div class="space-y-10">
-    <h1 class="text-3xl font-semibold text-slate-900">About</h1>
+    <h1 class="text-3xl font-semibold text-slate-900">Research</h1>
 
     <p v-if="loading" class="text-slate-500">Loading…</p>
     <p v-else-if="error" class="text-red-600">{{ error }}</p>

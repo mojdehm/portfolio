@@ -1,86 +1,43 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import headerImage from './assets/images/header.png'
+
+const navLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/research', label: 'Research' },
+  { to: '/publications', label: 'Publications' }
+]
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="w-full p-10" :src="headerImage" />
-
-    <!-- <div class="wrapper">
-      <div class="w-full h-20 bg-zinc-950">Hello ....</div>
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+  <div class="min-h-screen flex flex-col bg-white text-slate-800">
+    <header class="border-b border-slate-200">
+      <nav class="max-w-4xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+        <RouterLink to="/" class="text-lg font-semibold tracking-tight text-slate-900">
+          Mojdeh Mansoori
+        </RouterLink>
+        <div class="flex gap-6 text-sm">
+          <RouterLink
+            v-for="link in navLinks"
+            :key="link.to"
+            :to="link.to"
+            class="text-slate-600 hover:text-slate-900 transition-colors"
+            active-class="text-slate-900 font-medium"
+          >
+            {{ link.label }}
+          </RouterLink>
+        </div>
       </nav>
-    </div> -->
-  </header>
+    </header>
 
-  <!-- <RouterView /> -->
+    <main class="flex-1 max-w-4xl mx-auto w-full px-6 py-12">
+      <RouterView />
+    </main>
+
+    <footer class="border-t border-slate-200 mt-auto">
+      <div class="max-w-4xl mx-auto px-6 py-6 text-sm text-slate-500">
+        Section for Orofacial Pain and Jaw Function, Department of Dentistry and Oral Health, Aarhus University
+      </div>
+    </footer>
+  </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
